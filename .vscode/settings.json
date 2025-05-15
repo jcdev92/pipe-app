@@ -10,5 +10,8 @@
         "angular-page": {
             "skipChangeDetectionOnPush": true
         }
-    }
+    },
+    "conventionalCommits.scopes": [
+        "begin - start proyect, styles config, routes config."
+    ]
 }
