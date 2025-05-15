@@ -1,17 +1,18 @@
 {
-    "angular-schematics.schematicsDefaultOptions": {
-        "angular-*": {
-            "externalTemplate": true,
-            "skipStyle": true
-        },
-        "angular-component": {
-            "skipChangeDetectionOnPush": true
-        },
-        "angular-page": {
-            "skipChangeDetectionOnPush": true
-        }
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-*": {
+      "externalTemplate": true,
+      "skipStyle": true
     },
-    "conventionalCommits.scopes": [
-        "begin - start proyect, styles config, routes config."
-    ]
+    "angular-component": {
+      "skipChangeDetectionOnPush": true
+    },
+    "angular-page": {
+      "skipChangeDetectionOnPush": true
+    }
+  },
+  "conventionalCommits.scopes": [
+    "begin - start proyect, styles config, routes config.",
+    "add conventional commit"
+  ]
 }
