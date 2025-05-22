@@ -1,1 +1,29 @@
-<p>numbers-page works!</p>,
+<section>
+  <div class="mx-6 py-6">
+    <h1 class="text-3xl font-bold">Angular Pipes</h1>
+    <p class="font-thin">Number Pipes</p>
+  </div>
+  <div class="divider"></div>
+  <div class="stats stats-vertical lg:stats-horizontal shadow">
+    <div class="stat">
+      <div class="stat-title">Number: 1.2-2</div>
+      <div class="stat-value">{{totalSales() | number:'1.2-2' }}</div>
+      <div class="stat-desc">{{ totalSales() }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Number: 1.1-2</div>
+      <div class="stat-value">{{totalSales() + 1234 | number:'1.1-2' }}</div>
+      <div class="stat-desc">{{ totalSales() + 1234 }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Total Sales</div>
+      <div class="stat-value">{{ totalSales() | currency: 'CAD': 'symbol-narrow': '1.4-4' }}</div>
+      <div class="stat-desc">{{ totalSales() }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Percent</div>
+      <div class="stat-value">{{ percent() | percent: '1.2-2' }}</div>
+      <div class="stat-desc">{{ percent() }}</div>
+    </div>
+  </div>
+</section>
