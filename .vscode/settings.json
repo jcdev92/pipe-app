@@ -15,6 +15,7 @@
     "begin - start proyect, styles config, routes config.",
     "add conventional commit",
     "number pipes",
-    "config"
+    "config",
+    "new pipe"
   ]
 }
