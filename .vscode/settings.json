@@ -14,6 +14,7 @@
   "conventionalCommits.scopes": [
     "begin - start proyect, styles config, routes config.",
     "add conventional commit",
-    "number pipes"
+    "number pipes",
+    "config"
   ]
 }
