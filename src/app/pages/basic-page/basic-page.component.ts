@@ -1,10 +1,10 @@
-import { DatePipe, LowerCasePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { DatePipe, LowerCasePipe, NgClass, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component, effect, inject, LOCALE_ID, signal } from '@angular/core';
 import { AvailableLocale, LocaleService } from '../../services/locale.service';
 
 @Component({
   selector: 'app-basic-page',
-  imports: [LowerCasePipe, UpperCasePipe, TitleCasePipe, DatePipe],
+  imports: [LowerCasePipe, UpperCasePipe, TitleCasePipe, DatePipe, NgClass],
   templateUrl: './basic-page.component.html',
 })
 export default class BasicPageComponent {

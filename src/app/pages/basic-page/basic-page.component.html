@@ -64,10 +64,15 @@
       <div class="stat-desc">{{ customDate() }}</div>
     </div>
   </div>
-  <div class="dibvider"></div>
 
-  <div class="flex">
-    <button class="btn btn-outline">{{ currentLocale() }}</button>
+  <div class="divider"></div>
+  <div class="menu menu-horizontal rounded-box w-full justify-center gap-2">
+    <button [ngClass]="{
+      'btn-primary': currentLocale() === 'fr',
+      'btn-secondary': currentLocale() === 'en',
+      'btn-accent': currentLocale() === 'es',
+      'btn btn-outline': true
+    }"> {{ currentLocale() }}</button>
     <button (click)="changeLocale('fr')" class="btn btn-outline btn-primary">French</button>
     <button (click)="changeLocale('en')" class="btn btn-outline btn-secondary">English</button>
     <button (click)="changeLocale('es')" class="btn btn-outline btn-accent">Spanish</button>
