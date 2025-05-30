@@ -1,5 +1,6 @@
 import { DatePipe, LowerCasePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, inject, LOCALE_ID, signal } from '@angular/core';
+import { AvailableLocale, LocaleService } from '../../services/locale.service';
 
 @Component({
   selector: 'app-basic-page',
@@ -7,6 +8,10 @@ import { Component, effect, signal } from '@angular/core';
   templateUrl: './basic-page.component.html',
 })
 export default class BasicPageComponent {
+
+  localeService = inject(LocaleService);
+  currentLocale = signal(inject(LOCALE_ID));
+
   nameUpper = signal('GORDO')
   nameLower = signal('gordo')
   fullName = signal('GoRdO cLaRkE')
@@ -14,12 +19,17 @@ export default class BasicPageComponent {
   customDate = signal(new Date())
 
   tickingDateEffect = effect((onCleanup) => {
-    
-    const interval = setInterval(() => {
-        this.customDate.set(new Date());
-      }, 1000);
 
-      onCleanup(() => clearInterval(interval))
-    }
+    const interval = setInterval(() => {
+      this.customDate.set(new Date());
+    }, 1000);
+
+    onCleanup(() => clearInterval(interval))
+  }
   );
+
+  changeLocale(locale: AvailableLocale) {
+    console.log({ locale });
+    this.localeService.changeLocale(locale);
+  }
 }

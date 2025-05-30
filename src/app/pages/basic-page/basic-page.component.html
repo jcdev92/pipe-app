@@ -64,5 +64,12 @@
       <div class="stat-desc">{{ customDate() }}</div>
     </div>
   </div>
+  <div class="dibvider"></div>
 
+  <div class="flex">
+    <button class="btn btn-outline">{{ currentLocale() }}</button>
+    <button (click)="changeLocale('fr')" class="btn btn-outline btn-primary">French</button>
+    <button (click)="changeLocale('en')" class="btn btn-outline btn-secondary">English</button>
+    <button (click)="changeLocale('es')" class="btn btn-outline btn-accent">Spanish</button>
+  </div>
 </section>
