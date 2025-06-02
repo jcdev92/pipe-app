@@ -1,1 +1,85 @@
-<p>uncommon-page works!</p>,
+<section>
+  <div class="mx-6 py-6">
+    <h1 class="text-3xl font-bold">Pipes Poco Comunes</h1>
+    <p class="font-thin">String Pipes</p>
+  </div>
+  <div class="divider"></div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+  <app-card title="i18nSelect Pipe">
+    <p>Bienvenido Sr {{ client().name }}, es un placer {{ client().gender | i18nSelect: invitationMap }} a nuestro
+      evento evento</p>
+    <button class="btn btn-primary" (click)="changeClient()">Change Client</button>
+  </app-card>
+
+  <app-card title="i18nPlural Pipe">
+    <p>Actualmente tenemos {{ clients().length | i18nPlural: clientsMap }} </p>
+    <div class="grid grid-cols-2 gap-4">
+      <button [disabled]="clients().length === 0" class="btn btn-secondary" (click)="deleteClient()">Eliminar
+        Cliente</button>
+      <button [disabled]="clients().length > 0" class="btn btn-secondary" (click)="resetClients()">Resetear
+        Lista</button>
+    </div>
+  </app-card>
+
+
+  <app-card title="Slice Pipe">
+    <b>Original</b>
+    <p class="text-primary">{{ clients().join(", ")}}</p>
+    <b class="mt2">Slice 0:2</b>
+    <p class="text-primary">
+      {{ clients() | slice: 0: 2 }}
+    </p>
+    <b class="mt2">Slice 1:2</b>
+    <p class="text-primary">
+      {{ clients() | slice: 1: 2 }}
+    </p>
+    <b class="mt2">Slice 1:3</b>
+    <p class="text-primary">
+      {{ clients() | slice: 1: 3 }}
+    </p>
+    <b class="mt2">Slice 3:4</b>
+    <p class="text-primary">
+      {{ clients() | slice: 3: 4 }}
+    </p>
+    <b class="mt2">Slice 0:-3</b>
+    <p class="text-primary">
+      {{ clients() | slice: 0: -3 }}
+    </p>
+  </app-card>
+
+  <app-card title="JSON Pipe">
+    <p class="text-primary">{{ clients() | json }}</p>
+    <p class="text-primary">{{ client() | json }}</p>
+    <p class="text-primary">{{ clients().join(", ") | json | uppercase }}</p>
+  </app-card>
+
+  <app-card title="KeyValue Pipe">
+    <ul>
+      @for (item of profile | keyvalue; track $index ) {
+        <li>
+          <strong class="text-primary">{{ item.key | titlecase }}:</strong>
+          <span>
+            {{ item.value }}
+          </span>
+        </li>
+      }
+    </ul>
+  </app-card>
+  <app-card title="Async Pipe">
+    @if (promiseValue | async; as value) {
+      <p class="text-primary">{{ value }}</p>
+    } @else {
+      <p class="text-secondary">Loading...</p>
+    }
+
+    <h3>Observable</h3>
+    <p>{{ myObservableTimer | async }}</p>
+
+    @if (myObservableTimer | async; as value) {
+      <p class="text-primary">Valor {{ value }}</p>
+    } @else {
+      <p class="text-secondary">Loading...</p>
+    }
+  </app-card>
+</div>
