@@ -4,10 +4,13 @@ import { heroes } from '../../data/hero.data';
 import { CanFlyPipe } from '../../pipes/can-fly.pipe';
 import { HeroColorPipe } from '../../pipes/hero-color.pipe';
 import { HeroCreatorPipe } from '../../pipes/hero-creator.pipe';
+import { Hero } from '../../interfaces/hero.interfaces';
+import { HeroSortByPipe } from '../../pipes/hero-sort-by.pipe';
+import { HeroFilterPipe } from '../../pipes/hero-filter.pipe';
 
 @Component({
   selector: 'app-custom-page',
-  imports: [ToggleCasePipe, CanFlyPipe, HeroColorPipe, HeroCreatorPipe],
+  imports: [ToggleCasePipe, CanFlyPipe, HeroColorPipe, HeroCreatorPipe, HeroSortByPipe, HeroFilterPipe],
   templateUrl: './custom-page.component.html',
 })
 export default class CustomPageComponent {
@@ -19,4 +22,7 @@ export default class CustomPageComponent {
   }
 
   heroes = signal(heroes);
+
+  sortBy = signal<keyof Hero | null>(null);
+  search = signal<string>('');
 }
